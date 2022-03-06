@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Link shortener website</title>
+
+      <!-- style  -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/minireset.css/0.0.2/minireset.min.css"
+         integrity="sha512-uBLaY+6crwV4JAHILx0HWvYncrX7TXL770hqxly0ZsQ199v4lr2yNB2jiPMoxNajFPHSQnU80B1O8dJLujWZMg=="
+         crossorigin="anonymous"
+      />
+
+      <link rel="stylesheet" href="style.css" />
+
+      <!-- js  -->
+      <script
+         src="/node_modules/clipboard/dist/clipboard.min.js"
+         defer
+      ></script>
+
+      <script src="/app.js" defer></script>
+   </head>
+   <body>
+      <main>
+         <div class="container">
+            <div>
+               <h1>Link Shortener</h1>
+            </div>
+            <div>
+               <input
+                  id="input"
+                  type="text"
+                  placeholder="http://www.example.com"
+               />
+               <button class="btn-gn">Generate</button>
+            </div>
+
+            <div>
+               <input
+                  type="text"
+                  id="short-URL"
+                  placeholder="your shortened link"
+               />
+               <button class="btn-copy" data-clipboard-target="#short-URL">
+                  <i class="bi bi-clipboard"></i>
+               </button>
+            </div>
+         </div>
+         <!-- <div class="pop-up">
+            <div><i class="bi bi-info-circle"></i></div>
+            <div><p>URL has been copied</p></div>
+         </div> -->
+      </main>
+   </body>
+</html>
