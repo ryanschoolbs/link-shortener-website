@@ -1,7 +1,8 @@
 const generateBtn = document.querySelector(".btn-gn");
 const copyBtn = document.querySelector(".btn-copy");
 // const input = document.getElementById("input");
-let shortURL = document.getElementById("short-URL");
+let shortURLInput = document.getElementById("short-URL");
+const inputURL = document.getElementById("input");
 
 const link = "https://github.com/Meegod/Myshort/blob/master/app.js";
 
@@ -11,8 +12,8 @@ new ClipboardJS(".btn-copy");
 
 generateBtn.addEventListener("click", shortenerURL);
 copyBtn.addEventListener("click", () => {
-   if (shortURL.value != "") {
-      console.log(shortURL.value);
+   if (shortURLInput.value != "") {
+      console.log(shortURLInput.value);
       alert("URL has been copied!");
    }
 });
@@ -22,6 +23,7 @@ function shortenerURL() {
    console.log(enterValue);
 
    if (validURL(enterValue)) {
+      inputURL.style.outline = "none";
       fetch("https://api-ssl.bitly.com/v4/shorten", {
          method: "POST",
          headers: {
@@ -36,10 +38,11 @@ function shortenerURL() {
          .then((res) => res.json())
          .then((data) => {
             console.log(data.link);
-            shortURL.value = data.link;
+            shortURLInput.value = data.link;
          });
    } else {
-      alert("Please input a valid url.");
+      // alert("Please input a valid url.");
+      inputURL.style.outline = "red 1px solid";
    }
 }
 
